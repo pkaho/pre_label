@@ -1,0 +1,15 @@
+HighPlaceWork
+FloorWork
+SafetyFenceNormal
+SafetyFenceAbnormal
+SeatBelt
+Person
+WorkNotice
+Helmet
+NoHelmet
+ALineLadderNormal
+ALineLadderAbnormal
+MetalFenceNormal
+SafetyVest
+NoSafetyVest
+WorkMan

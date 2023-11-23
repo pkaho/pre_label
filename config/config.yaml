@@ -1,0 +1,26 @@
+defaults:
+  - _self_
+  - db: work
+
+  - override hydra/hydra_logging: disabled  # 关闭日志
+  - override hydra/job_logging: disabled    # 关闭日志
+
+db:
+  imgsz: 640
+  stride: 32
+  save_dir: "./runs/"
+  vid_stride: 1
+  agnostic_nms: False
+  max_det: 1000
+  conf_thres: 0.5
+  iou_thres: 0.45
+  device: 0
+  totxt: False
+  tojson: True
+  classes:
+  append_mode: False
+
+hydra:
+  output_subdir: Null   # 禁止将文件保存到 .hydra 目录中
+  run:
+    dir: .              # 生成保存 .hydra 的目录, 指定 `.` 则不生成任何目录, 默认为 outputs
