@@ -13,10 +13,11 @@ def column_charts(df, jpg_path):
     fig = plt.figure(figsize=(10, 6), dpi=100)
     ax = fig.add_subplot(111)
 
-    colors = ["red", "blue", "green", "yellow", "purple", "orange", "black", "pink", "brown", "gray", "cyan", "lightskyblue", "gold", "blim"]
+    colors = ["red", "blue", "green", "yellow", "purple", "orange", "black", "pink", "brown", "gray", "cyan", "lightskyblue", "gold"]
     total_count = df["Count"].sum()
     for idx, (name, count) in enumerate(df.values):
-        ax.barh(name, count, label=f"{name}: {count} ({(count/total_count):.2%})", color=colors[idx])
+        color = colors[idx % len(colors)]  # Use modulo operator to loop back to beginning of colors
+        ax.barh(name, count, label=f"{name}: {count} ({(count/total_count):.2%})", color=color)
         ax.annotate(f"{count}", xy=(count, idx), xytext=(count, idx), color='black', fontweight='normal')
 
     ax.legend(loc='upper right', reverse=True)

@@ -1,9 +1,0 @@
-weights: [
-  "./weights/part3_gpu_fp16.torchscript.pt"
-]
-source: "E:/z_wait_label/20231025_greenfw/"
-conf_thres: 0.55
-iou_thres: 0.45
-device: 0
-classes:
-all_cls: "./config/work_classes.txt"

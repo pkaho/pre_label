@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
-# vscode debug
-import os, sys
-os.chdir(sys.path[0])
+import os
+import sys
 
 import hydra
 import torch
@@ -17,6 +16,7 @@ from myUtils.bbox_utils import scale_boxes
 from myUtils.save_results import process_results
 
 import warnings
+os.chdir(sys.path[0]) # vscode debug 需要加上这一句
 warnings.filterwarnings('ignore')
 
 @hydra.main(version_base=None, config_path="./config", config_name="config")
