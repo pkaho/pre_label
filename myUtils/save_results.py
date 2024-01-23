@@ -10,7 +10,6 @@ from myUtils.colors import RGB_COLORS, HEX_COLORS
 HEX_COLORS = list(HEX_COLORS.keys())
 
 def draw_box(im, box, label, cls):
-    # text_color = (255, 255, 255)
     text_color = (0, 0, 0)
     color = HEX_COLORS[cls]
     lw = max(round(sum(im.size) / 2 * 0.003), 2)
@@ -19,9 +18,10 @@ def draw_box(im, box, label, cls):
         draw = ImageDraw.Draw(im)
         font = ImageFont.truetype("./utils/arial.ttf", size=20)
         draw.rectangle(box, width=lw, outline=color)
-        # ImageDraw.textsize()自Pillow-10.0.0开始被删除, 使用替换方法ImageDraw.textbbox(),ImageDraw.textlength()
-        # ref: https://pillow.readthedocs.io/en/stable/releasenotes/10.0.0.html
-        text_width, text_height = draw.textsize(label, font)
+        # ImageDraw.textsize()自Pillow-10.0.0开始被删除, 具体替换方法可到官网查看
+        # refer: https://pillow.readthedocs.io/en/stable/releasenotes/9.2.0.html#font-size-and-offset-methods
+        left, top, right, bottom = font.getbbox(label)
+        text_width, text_height = right - left, bottom - top
 
         text_x = box[0]
         text_y = box[1] - text_height
