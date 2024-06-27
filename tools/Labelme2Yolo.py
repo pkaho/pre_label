@@ -45,8 +45,8 @@ def xyxy2xywh(img_w, img_h, box):
     x_c = (box[0] + box[2]) / 2.0
     y_c = (box[1] + box[3]) / 2.0
 
-    box_w = box[2] - box[0]
-    box_h = box[3] - box[1]
+    box_w = abs(box[2] - box[0])
+    box_h = abs(box[3] - box[1])
 
     x_center = x_c * dw
     width = box_w * dw
